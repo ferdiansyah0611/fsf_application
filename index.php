@@ -2,6 +2,7 @@
 
 include __DIR__. '/system/core/Route.php';
 include __DIR__. '/system/core/Asset.php';
+include __DIR__. '/system/core/DB.php';
 
 require_once __DIR__. '/system/App.php';
 require_once __DIR__. '/config/database.php';

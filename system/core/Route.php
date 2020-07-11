@@ -1,5 +1,5 @@
 <?php
-namespace Ferdiansyah\Core;
+namespace FSF\Core;
 
 class Route
 {
