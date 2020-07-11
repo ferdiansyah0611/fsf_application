@@ -1,4 +1,5 @@
 <?php
+use Ferdiansyah\Core\DB;
 
 class What extends Controller
 {

@@ -1,3 +1,3 @@
 <?php 
-use Ferdiansyah\Core\Route;
+use FSF\Core\Route;
 Route::get('/index', 'Home@index');
