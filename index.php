@@ -1,12 +1,14 @@
 <?php
 
 include __DIR__. '/system/core/Route.php';
+include __DIR__. '/system/core/Asset.php';
 
 require_once __DIR__. '/system/App.php';
 require_once __DIR__. '/config/database.php';
 require_once __DIR__. '/config/default.php';
-
-$app = new Ferdiansyah;
-$app->run();
 require_once __DIR__. '/application/routing/Web.php';
-use Ferdiansyah\Core\Route;
+
+use FSF\Core\Route;
+
+$app = new FSF;
+$app->run();
