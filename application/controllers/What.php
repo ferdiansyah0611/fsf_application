@@ -4,14 +4,14 @@ class What extends Controller
 {
 	public function __construct()
 	{
-		$this->models('example');
-		$this->loaded = new Example;
+		$this->example = $this->load()->models('example');
 	}
-	public function index($one = '', $two = '')
+	public function index($one = '2', $two = '')
 	{
-		/*inser data*/
-		var_dump($this->loaded->find(5));
+		var_dump($this->example->whereData('id', $one));
+		// var_dump($this->loaded->find(5));
+		// var_dump($this->loaded->updated(5));
 		$data['title'] = 'What page' . $one;
-		$this->views('app', $data);
+		$this->load()->views('app', $data);
 	}
 }

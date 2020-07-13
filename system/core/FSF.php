@@ -37,7 +37,6 @@ class FSF
 		if(!empty($url)){
 			$this->params = array_values($url);
 		}
-		var_dump($url);
 		//running controller & methods, with send params if have value
 		call_user_func_array([$this->controller, $this->methods], $this->params);
 	}

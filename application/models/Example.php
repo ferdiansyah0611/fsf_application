@@ -29,6 +29,21 @@ class Example extends Model
 	{
 		return $this->get()->finds($data);
 	}
+	/*where data*/
+	public function whereData($key, $value)
+	{
+		return $this->get()->where($key, $value)->fetch();
+	}
+	/*delete data*/
+	public function deleted($key, $value)
+	{
+		return $this->get()->where($key, $value)->delete();
+	}
+	/*updated data*/
+	public function updated($data)
+	{
+		return $this->post()->where('id', '5')->update([null, 'ferdi', 'asu@gmail.com', '12345ferdi']);
+	}
 	/*insert data*/
 	public function created()
 	{
