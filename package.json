@@ -1,0 +1,27 @@
+{
+  "name": "fsf",
+  "version": "1.0.0",
+  "description": "Web",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^4.5.0",
+    "vue": "^2.6.11",
+    "vue-router": "^3.3.4",
+    "vuex": "^3.5.1",
+    "webpack": "^4.43.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ferdiansyah0611/fsf_application.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ferdiansyah0611/fsf_application/issues"
+  },
+  "homepage": "https://github.com/ferdiansyah0611/fsf_application#readme"
+}
