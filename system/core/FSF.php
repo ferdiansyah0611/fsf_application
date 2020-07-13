@@ -13,47 +13,42 @@ class FSF
 
 	public function run()
 	{
-		// default url
-		if($this->URLparse() == null) {
-			// controller
-			require DIR_URL . '/application/controllers/' . $this->controller . '.php';
-			$this->controller = new $this->controller;
-			$this->controller->index();
-		}
-		else {
-			$string = explode('/', $this->URLparse()['url']);
-			/*var_dump($string);*/
-			// controller
-			// only controller not methods {index url /}
-			if(!isset($string[1])) {
-					require DIR_URL . '/application/controllers/' . $string[0] . '.php';
-					if(method_exists($this->controller = new $string[0], 'index')) {
-						/*echo 'true';*/
-						call_user_func(array($this->controller, 'index'));
-					} else {
-      					throw new Exception('Methods not founds');
-					}
+		$url = $this->parse();
 
-			// controller & methods
-			} else {
-				require DIR_URL . '/application/controllers/' . $string[0] . '.php';
-				$this->controller = new $string[0];
-				if($string[1] !== null) {
-					if(method_exists($this->controller, $string[1])) {
-						/*echo 'have';*/
-						call_user_func(array($this->controller, $string[1]));
-					} else {
-      					throw new Exception('Methods not founds');
-					}
-				}
+		//controller
+		if(file_exists(DIR_URL . '/application/controllers/' . $url[0] . '.php')){
+			$this->controller = $url[0];
+			unset($url[0]);
+		}
+
+		require_once DIR_URL . '/application/controllers/' . $this->controller . '.php';
+		$this->controller = new $this->controller;
+		
+
+		//method
+		if(isset($url[1])){
+			if(method_exists($this->controller, $url[1])){
+				$this->methods = $url[1];
+				unset($url[1]);
 			}
 		}
-	}
 
-	public function URLparse()
+		//params
+		if(!empty($url)){
+			$this->params = array_values($url);
+		}
+		var_dump($url);
+		//running controller & methods, with send params if have value
+		call_user_func_array([$this->controller, $this->methods], $this->params);
+	}
+	public function parse()
 	{
-		if(isset($_GET)){
-			return $_GET;
+		if(isset($_GET['url'])) {
+			$data = $_GET['url'];
+			$data = rtrim($data, '/');
+			$data = filter_var($data, FILTER_SANITIZE_URL);
+			$data = explode('/', $data);
+			return $data;
 		}
 	}
 

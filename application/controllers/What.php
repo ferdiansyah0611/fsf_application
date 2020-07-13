@@ -7,10 +7,11 @@ class What extends Controller
 		$this->models('example');
 		$this->loaded = new Example;
 	}
-	public function index()
+	public function index($one = '', $two = '')
 	{
-		var_dump($this->loaded->all());
-		$data['title'] = 'What page';
+		/*inser data*/
+		var_dump($this->loaded->find(5));
+		$data['title'] = 'What page' . $one;
 		$this->views('app', $data);
 	}
 }
