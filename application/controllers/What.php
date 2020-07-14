@@ -1,14 +1,13 @@
 <?php
-
 class What extends Controller
 {
 	public function __construct()
 	{
 		$this->example = $this->load()->models('example');
 	}
-	public function index($one = '2', $two = '')
+	public function index($one = '1', $two = '')
 	{
-		var_dump($this->example->whereData('id', $one));
+		print_r(json_encode($this->example->whereData('id', $one)));
 		// var_dump($this->loaded->find(5));
 		// var_dump($this->loaded->updated(5));
 		$data['title'] = 'What page' . $one;

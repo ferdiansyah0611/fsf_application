@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 class Controller
 {
 	public function load()
